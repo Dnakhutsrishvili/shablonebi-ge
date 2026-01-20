@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Template } from "@/lib/types";
-import { exportToDocx } from "@/lib/export";
+import { exportToDocx, exportToPdf } from "@/lib/export";
 import DocumentPreview from "./DocumentPreview";
 
 interface TemplateFormProps {
@@ -20,10 +20,14 @@ export default function TemplateForm({ template }: TemplateFormProps) {
     }));
   };
 
-  const handleExport = async () => {
+  const handleExport = async (format: "docx" | "pdf") => {
     setIsExporting(true);
     try {
-      await exportToDocx(template, formData);
+      if (format === "docx") {
+        await exportToDocx(template, formData);
+      } else {
+        await exportToPdf(template, formData);
+      }
     } catch (error) {
       console.error("Export failed:", error);
       alert("ექსპორტი ვერ მოხერხდა");
@@ -65,13 +69,23 @@ export default function TemplateForm({ template }: TemplateFormProps) {
           </div>
         ))}
 
-        <button
-          onClick={handleExport}
-          disabled={isExporting}
-          className="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 disabled:bg-blue-400"
-        >
-          {isExporting ? "იტვირთება..." : "გადმოწერა DOCX"}
-        </button>
+        {/* Export Buttons */}
+        <div className="flex gap-4">
+          <button
+            onClick={() => handleExport("docx")}
+            disabled={isExporting}
+            className="flex-1 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 disabled:bg-blue-400"
+          >
+            {isExporting ? "იტვირთება..." : "📄 DOCX"}
+          </button>
+          <button
+            onClick={() => handleExport("pdf")}
+            disabled={isExporting}
+            className="flex-1 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 disabled:bg-red-400"
+          >
+            {isExporting ? "იტვირთება..." : "📕 PDF"}
+          </button>
+        </div>
       </div>
 
       {/* Right Side: Live Preview */}

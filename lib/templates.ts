@@ -297,6 +297,374 @@ export const templates: Template[] = [
       },
     ],
   },
+  // Template 5: Invoice
+  {
+    id: "invoisi",
+    slug: "invoisi",
+    category: "khelshekrulebebi",
+    title: "ინვოისი",
+    description: "ინვოისის შაბლონი მომსახურების ან საქონლის გაყიდვისთვის",
+    downloads: 8921,
+    rating: 4.7,
+    formats: ["docx", "pdf"],
+    featured: false,
+    sections: [
+      {
+        id: "seller",
+        title: "გამყიდველი",
+        fields: [
+          {
+            id: "seller_name",
+            label: "კომპანიის დასახელება",
+            type: "text",
+            required: true,
+          },
+          {
+            id: "seller_id",
+            label: "საიდენტიფიკაციო კოდი",
+            type: "text",
+            required: true,
+          },
+          {
+            id: "seller_address",
+            label: "მისამართი",
+            type: "text",
+            required: true,
+          },
+          {
+            id: "seller_bank",
+            label: "საბანკო ანგარიში",
+            type: "text",
+            required: true,
+          },
+        ],
+      },
+      {
+        id: "buyer",
+        title: "მყიდველი",
+        fields: [
+          {
+            id: "buyer_name",
+            label: "კომპანია / სახელი",
+            type: "text",
+            required: true,
+          },
+          {
+            id: "buyer_id",
+            label: "საიდენტიფიკაციო კოდი",
+            type: "text",
+            required: false,
+          },
+          {
+            id: "buyer_address",
+            label: "მისამართი",
+            type: "text",
+            required: false,
+          },
+        ],
+      },
+      {
+        id: "invoice_details",
+        title: "ინვოისის დეტალები",
+        fields: [
+          {
+            id: "invoice_number",
+            label: "ინვოისის ნომერი",
+            type: "text",
+            required: true,
+          },
+          { id: "invoice_date", label: "თარიღი", type: "date", required: true },
+          {
+            id: "due_date",
+            label: "გადახდის ვადა",
+            type: "date",
+            required: true,
+          },
+        ],
+      },
+      {
+        id: "items",
+        title: "მომსახურება / საქონელი",
+        fields: [
+          {
+            id: "item1_name",
+            label: "დასახელება",
+            type: "text",
+            required: true,
+          },
+          {
+            id: "item1_quantity",
+            label: "რაოდენობა",
+            type: "number",
+            required: true,
+          },
+          {
+            id: "item1_price",
+            label: "ფასი (ლარი)",
+            type: "number",
+            required: true,
+          },
+          { id: "total", label: "ჯამი (ლარი)", type: "number", required: true },
+        ],
+      },
+    ],
+  },
+
+  // Template 6: Power of Attorney
+  {
+    id: "mindobeloba",
+    slug: "mindobeloba",
+    category: "khelshekrulebebi",
+    title: "მინდობილობა",
+    description: "უფლებამოსილების გადაცემის მინდობილობის შაბლონი",
+    downloads: 5432,
+    rating: 4.6,
+    formats: ["docx", "pdf"],
+    featured: false,
+    sections: [
+      {
+        id: "principal",
+        title: "მარწმუნებელი",
+        fields: [
+          {
+            id: "principal_name",
+            label: "სახელი და გვარი",
+            type: "text",
+            required: true,
+          },
+          {
+            id: "principal_id",
+            label: "პირადი ნომერი",
+            type: "text",
+            required: true,
+          },
+          {
+            id: "principal_address",
+            label: "მისამართი",
+            type: "text",
+            required: true,
+          },
+        ],
+      },
+      {
+        id: "agent",
+        title: "რწმუნებული",
+        fields: [
+          {
+            id: "agent_name",
+            label: "სახელი და გვარი",
+            type: "text",
+            required: true,
+          },
+          {
+            id: "agent_id",
+            label: "პირადი ნომერი",
+            type: "text",
+            required: true,
+          },
+          {
+            id: "agent_address",
+            label: "მისამართი",
+            type: "text",
+            required: true,
+          },
+        ],
+      },
+      {
+        id: "authority",
+        title: "უფლებამოსილება",
+        fields: [
+          {
+            id: "authority_description",
+            label: "რას ანიჭებთ უფლებას",
+            type: "text",
+            required: true,
+          },
+          {
+            id: "valid_from",
+            label: "მოქმედების დაწყება",
+            type: "date",
+            required: true,
+          },
+          {
+            id: "valid_until",
+            label: "მოქმედების დასრულება",
+            type: "date",
+            required: true,
+          },
+        ],
+      },
+    ],
+  },
+
+  // Template 7: Loan Agreement
+  {
+    id: "seskhis-khelshekruleba",
+    slug: "seskhis-khelshekruleba",
+    category: "khelshekrulebebi",
+    title: "სესხის ხელშეკრულება",
+    description: "ფიზიკურ პირებს შორის სესხის ხელშეკრულება",
+    downloads: 7123,
+    rating: 4.8,
+    formats: ["docx", "pdf"],
+    featured: false,
+    sections: [
+      {
+        id: "lender",
+        title: "გამსესხებელი",
+        fields: [
+          {
+            id: "lender_name",
+            label: "სახელი და გვარი",
+            type: "text",
+            required: true,
+          },
+          {
+            id: "lender_id",
+            label: "პირადი ნომერი",
+            type: "text",
+            required: true,
+          },
+          {
+            id: "lender_address",
+            label: "მისამართი",
+            type: "text",
+            required: true,
+          },
+        ],
+      },
+      {
+        id: "borrower",
+        title: "მსესხებელი",
+        fields: [
+          {
+            id: "borrower_name",
+            label: "სახელი და გვარი",
+            type: "text",
+            required: true,
+          },
+          {
+            id: "borrower_id",
+            label: "პირადი ნომერი",
+            type: "text",
+            required: true,
+          },
+          {
+            id: "borrower_address",
+            label: "მისამართი",
+            type: "text",
+            required: true,
+          },
+        ],
+      },
+      {
+        id: "loan",
+        title: "სესხის პირობები",
+        fields: [
+          {
+            id: "loan_amount",
+            label: "სესხის თანხა (ლარი)",
+            type: "number",
+            required: true,
+          },
+          {
+            id: "interest_rate",
+            label: "წლიური პროცენტი (%)",
+            type: "number",
+            required: false,
+          },
+          {
+            id: "loan_date",
+            label: "გაცემის თარიღი",
+            type: "date",
+            required: true,
+          },
+          {
+            id: "return_date",
+            label: "დაბრუნების თარიღი",
+            type: "date",
+            required: true,
+          },
+        ],
+      },
+    ],
+  },
+
+  // Template 8: Leave Request
+  {
+    id: "shvebuleba-gantskhadeba",
+    slug: "shvebuleba-gantskhadeba",
+    category: "gantskhadebebi",
+    title: "შვებულების განცხადება",
+    description: "ანაზღაურებადი ან არანაზღაურებადი შვებულების მოთხოვნა",
+    downloads: 4521,
+    rating: 4.5,
+    formats: ["docx", "pdf"],
+    featured: false,
+    sections: [
+      {
+        id: "company",
+        title: "კომპანია",
+        fields: [
+          {
+            id: "company_name",
+            label: "კომპანიის დასახელება",
+            type: "text",
+            required: true,
+          },
+          {
+            id: "director_name",
+            label: "დირექტორის სახელი",
+            type: "text",
+            required: true,
+          },
+        ],
+      },
+      {
+        id: "employee",
+        title: "თანამშრომელი",
+        fields: [
+          {
+            id: "employee_name",
+            label: "თქვენი სახელი და გვარი",
+            type: "text",
+            required: true,
+          },
+          {
+            id: "position",
+            label: "თქვენი თანამდებობა",
+            type: "text",
+            required: true,
+          },
+        ],
+      },
+      {
+        id: "leave",
+        title: "შვებულების დეტალები",
+        fields: [
+          {
+            id: "leave_type",
+            label: "შვებულების ტიპი",
+            type: "text",
+            required: true,
+          },
+          {
+            id: "start_date",
+            label: "დაწყების თარიღი",
+            type: "date",
+            required: true,
+          },
+          {
+            id: "end_date",
+            label: "დასრულების თარიღი",
+            type: "date",
+            required: true,
+          },
+          { id: "reason", label: "მიზეზი", type: "text", required: false },
+        ],
+      },
+    ],
+  },
 
   // Template 4: Simple CV
   {

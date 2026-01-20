@@ -1,38 +1,58 @@
+// lib/types.ts
+
 export interface TemplateField {
-  id: string; // Unique identifier, e.g., "employee_name"
-  label: string; // Georgian label: "სახელი და გვარი"
+  id: string;
+  label: string;
   type: "text" | "textarea" | "date" | "number" | "email" | "select";
-  placeholder?: string; // Optional hint text
-  required?: boolean; // Is this field mandatory?
-  options?: { value: string; label: string }[]; // For select dropdowns
+  placeholder?: string;
+  required?: boolean;
+  options?: { value: string; label: string }[];
 }
 
-// A section groups related fields together
 export interface TemplateSection {
   id: string;
-  title: string; // "დამსაქმებელი" (Employer)
+  title: string;
   fields: TemplateField[];
 }
 
-// The main Template type
+// NEW: Document structure for real formatting
+export interface DocumentClause {
+  number: string; // "1", "1.1", "2", etc.
+  title?: string; // "ხელშეკრულების საგანი"
+  content: string; // Text with {placeholders}
+}
+
 export interface Template {
   id: string;
-  slug: string; // URL-friendly name: "shromiti-khelshekruleba"
-  category: string; // "khelshekrulebebi", "cv-reziume", etc.
-  title: string; // "შრომითი ხელშეკრულება"
+  slug: string;
+  category: string;
+  title: string;
   description: string;
   downloads: number;
   rating: number;
   formats: ("docx" | "pdf")[];
   featured: boolean;
-  sections: TemplateSection[]; // Form sections with fields
+  sections: TemplateSection[];
+
+  // NEW: Document structure
+  document: {
+    title: string; // "შრომითი ხელშეკრულება №____"
+    subtitle?: string; // Optional subtitle
+    city?: string; // "ქ. თბილისი"
+    dateFormat?: string; // How to show date
+    parties: string[]; // Intro paragraphs for each party
+    clauses: DocumentClause[]; // Main content
+    signatures: {
+      left: string; // "დამსაქმებელი"
+      right: string; // "დასაქმებული"
+    };
+  };
 }
 
-// Category type
 export interface Category {
   id: string;
-  name: string; // "ხელშეკრულებები"
-  slug: string; // "khelshekrulebebi"
+  name: string;
+  slug: string;
   description: string;
-  color: string; // Tailwind gradient classes
+  color: string;
 }
